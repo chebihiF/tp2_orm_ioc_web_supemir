@@ -6,10 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 
 @Entity @Table(name = "produit")
@@ -24,4 +21,6 @@ public class Product {
     private double price ;
     @Column(name = "quantite")
     private int quantity ;
+    @ManyToOne @JoinColumn(name = "id_customer")
+    private Customer customer;
 }
